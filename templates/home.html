@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<div class="col-xl-11">
+    <div class = "row d-flex justify-content-around">
+        <div class="col-xl-5 col-lg-8 col-md-10 col-sm-11" id = "TODO">
+            <span class = "index-title">Your Goals</span>
+                {%for goals in TODOS%}
+                    <div class = "index-goal-border">
+                        <div class = "index-goal d-flex justify-content-start align-items-center p-2">
+                            <input type = "radio" class = "check" onclick="delete_goal('{{goals.todo_id}}')">
+                            <div class = "goal-group">
+                                <span class = "index-text mr-1" style="font-weight: bolder;">{{goals.category}}</span>
+                            </div>
+                            <div class = "goal-group">
+                                <span class = "index-text mr-1" id = "goal_id_{{goals.todo_id}}">{{goals.goal}}</span>
+                            </div>
+                            
+                            {%if goals.time_end != ""%}
+                                <span class = "small text-muted">Due For: {{goals.time_end}}</span>
+                            {%endif%}
+                            <button class = "btn change-btn" type="button" data-bs-toggle="collapse" data-bs-target="#change_{{goals.todo_id}}" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-three-dots"></i></button>
+                        </div>
+                        
+                        <div class = "collapse" id = "change_{{goals.todo_id}}">
+                            <div class="centering d-flex justify-content-center">
+                                <form id = "change_form_{{goals.todo_id}}">
+                                    <input name = "new_text" class = "form-control mr-2 index-change-input" type="text" placeholder="Input edited goal">
+                                    <button type = "submit" class = "btn btn-sm btn-primary" onclick="change_goal('{{goals.todo_id}}')">Confirm</button>
+                                </form>
+                            </div>   
+                        </div>
+                    </div>
+                {%endfor%}
+            <button class = "btn btn-primary m-2" type="button" data-bs-toggle="collapse" data-bs-target="#add_goal" aria-expanded="false" aria-controls="collapseExample">Add</button>
+            <button class = "btn btn-primary" onclick="reload()">reload</button>
+
+            <div class = "collapse add_form_shadow" id = "add_goal">
+                <form id = add_form>
+                    <div class="form-group">
+                        <input class = "form-control mb-2 " type = "text" name = "goal" placeholder="New Goal">
+                        <input class = "form-control" type = "text" name = "category" placeholder="Enter Category">
+                    </div>
+                    <div class="form-group">
+                        <label for = "end_time" class = "mr-1">Set a time and date: </label>
+                        <input class = "form-control" type = "datetime-local" name = "end_time" placeholder="Enter End-time">
+                    </div>
+                    <button class = "btn btn-primary" id = "add-form-button" onclick="add_goal()">Confirm</button>
+                </form>
+            </div>
+        </div>
+        
+
+        <div class="col-xl-6 col-lg-10 col-md-11 col-sm-11">
+            <span class = "index-title">Garden</span>
+            <div class="row d-flex justify-content-center">
+                {%for plant in inventory%}
+                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 mb-3">
+                    <div class="card index-plant">
+                        <img class = "card-img-top" src = "../static/{{plant.plant}}.png">
+                        <div class="card-body">
+                            <h5 class = "card-title">{{name_dict[plant.plant]}}</h5>
+                            <p>Planted at: {{plant.time}}</p>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
