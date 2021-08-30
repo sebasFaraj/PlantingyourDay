@@ -32,10 +32,10 @@ src_dir = os.getcwd()
 dest_dir = src_dir + '/static/user_pro_pics'
 app.config["UPLOAD_FOLDER"] = dest_dir
 
-# Configure session to use filesystem (instead of signed cookies)
 
-
+app.secret_key = "511792479982716075136581606811371133242856358571234"
 Session(app)
+
 
 
 
