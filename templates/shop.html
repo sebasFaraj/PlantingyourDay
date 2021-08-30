@@ -15,7 +15,7 @@
                 {%for plant in plants[i*3:i*3 + 3]%}
                     <div class="col-xl-3 col-lg-5 col-md-8 col-sm-8 m-2 d-flex align-items-center justify-content-center">
                         <div class="card shop-card">
-                            <img src = "../static/{{plant.name}}.jpg" class = "card-img-top shop-img" alt = "plant">
+                            <img src = "../static/{{plant.name}}.JPG" class = "card-img-top shop-img" alt = "plant">
                             <div class="card-body">
                                 <h5 class = "card-title" style="text-align: center;">{{name_dict[plant.name]}}</h5>
                                 <p>{{plant.description}}</p>
@@ -34,29 +34,3 @@
 
 
 {%endblock%}
-
-
-<!-- <div class="card">
-    <img src = "../static/sprout.JPG" class = "card-img-top" alt = "plant">
-    <div class="card-body">
-        <h5 class = "card-title" style="text-align: center;">Sprout</h5>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut quibusdam unde impedit optio nobis</p>
-        <button type = "submit" name = "submit" value="sprout" class = "btn btn-primary">50 coins </button>
-    </div>
-</div>
-<div class="card">
-    <img src = "../static/blue_plant.JPG" class = "card-img-top" alt = "plant">
-    <div class="card-body">
-        <h5 class = "card-title" style="text-align: center;">Sprout</h5>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut quibusdam unde impedit optio nobis</p>
-        <button type = "submit" name = "submit" value="blue_plant" class = "btn btn-primary">100 coins </button>
-    </div>
-</div>
-<div class="card">
-    <img src = "../static/red_plant.JPG" class = "card-img-top" alt = "plant">
-    <div class="card-body">
-        <h5 class = "card-title" style="text-align: center;">Sprout</h5>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut quibusdam unde impedit optio nobis</p>
-        <button type = "submit" name = "submit" value="red_plant" class = "btn btn-primary">150 coins </button>
-    </div>
-</div> -->
