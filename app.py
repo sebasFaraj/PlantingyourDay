@@ -33,9 +33,7 @@ dest_dir = src_dir + '/static/user_pro_pics'
 app.config["UPLOAD_FOLDER"] = dest_dir
 
 # Configure session to use filesystem (instead of signed cookies)
-app.config["SESSION_FILE_DIR"] = mkdtemp()
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
+
 
 Session(app)
 
