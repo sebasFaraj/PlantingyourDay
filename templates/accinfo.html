@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Account Information
+{% endblock %}
+
+{% block main%}
+        <div class="col-xl-5 col-lg-11 col-md-11 col-sm-11 info-container">
+                <div class = "row p-2 m-4 d-flex align-items-center justify-content-center">
+                    <img class = "info-pro-pic" src ="../static/user_pro_pics/{{session.pro_pic}}">
+                    <span class = "info-title">Hi {{user.username}}!</span>
+                </div>
+                
+                <div class = "row p-2 m-4 d-flex align-items-center justify-content-center">
+                    <div class="col-xl-4 m-2 d-flex align-items-center justify-content-center">
+                        <object class = "info-coin" data = "../static/icons/dollar.svg"></object>
+                        <span class = "info-text">Coins: {{user.coins}}</span>
+                    </div>
+                    <div class="col-xl-7 m-2 d-flex align-items-center justify-content-center">
+                        <object class = "info-coin" data = "../static/icons/check.svg"></object>
+                        <span class = "info-text">Completed Tasks: {{user.completed}}</span>
+                    </div>
+                </div>
+                
+                <div class = "row p-2 m-4 d-flex justify-content-center">
+                    <span class = "info-text">Account Creation: {{user.creation_time}}</span>
+                </div>
+                    
+                <div class = "row p-2 m-2 d-flex justify-content-center">
+                     <button onclick="location.href = '/change_password';" class = "btn btn-primary info-btn">Change Password</button>
+                     <button onclick="location.href = '/change_profile_picture';" class = "btn btn-primary  info-btn">Change pic</button>
+                     <button onclick="location.href = '/account_deletion';" class = "btn btn-danger  info-btn">Delete Account</button>
+                </div>    
+        </div>
+{% endblock %}

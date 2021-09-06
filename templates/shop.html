@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Roots
+{% endblock %}
+
+{%block main%}
+    <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-xs-11 shop-container">
+        <h1 class = "shop-title">ROOTS</h1>
+        <span class = "shop-title-subheading">Good plants, good prices</span>
+        <form method="POST" action="/shop">
+        {%for i in range(length)%}
+            <div class = "row p-2 m-2 d-flex align-items-center justify-content-center">
+                {%for plant in plants[i*3:i*3 + 3]%}
+                    <div class="col-xl-3 col-lg-5 col-md-8 col-sm-8 m-2 d-flex align-items-center justify-content-center">
+                        <div class="card shop-card">
+                            <img src = "../static/{{plant.name}}.JPG" class = "card-img-top shop-img" alt = "plant">
+                            <div class="card-body">
+                                <h5 class = "card-title" style="text-align: center;">{{name_dict[plant.name]}}</h5>
+                                <p>{{plant.description}}</p>
+                                <button type = "submit" name = "submit" value="{{plant.name}}" class = "btn btn-primary flex"><object class = "shop-coin" data = "../static/icons/dollar.svg"></object>{{plant.price}}</button>
+                            </div>
+                        </div>
+                    </div>
+                {%endfor%}
+            </div>
+        {%endfor%}
+    </form>
+    </div>
+
+
+
+
+
+{%endblock%}

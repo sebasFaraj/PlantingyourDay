@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Delete account
+{% endblock %}
+
+{% block main%}
+    <div class="col-xl-4 col-lg-6 col-md-7 col-sm-8 col-xs-11 p-3 info-container">
+        <form action = "/change_profile_picture" method = "POST" enctype="multipart/form-data">
+            <div class = "form-group text-center">
+                <label for ="profile_picture">(Only PNG's,JPEG'S,and JPG)</label>
+                <br>
+                <input type="file"  name = "profile_picture" class="file-input" accept=".png, .jpg, .jpeg">
+            </div>
+            <button class="btn btn-danger" type="submit">Change Picture</button>
+        </form>
+    </div>
+
+{% endblock %}
