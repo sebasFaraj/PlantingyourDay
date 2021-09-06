@@ -35,7 +35,6 @@ app.config["UPLOAD_FOLDER"] = dest_dir
 
 app.secret_key = "511792479982716075136581606811371133242856358571234"
 
-app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = True
 app.config["SESSION_TYPE"] = "filesystem"
 
