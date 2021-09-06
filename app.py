@@ -450,7 +450,7 @@ def shop():
         date_string = current.strftime("%d/%m/%Y %H:%M:%S")
 
         # If user can afford it
-        if user[0]["coins"] > plant[0]["price"]:
+        if user[0]["coins"] >= plant[0]["price"]:
             # Insert into owned table
             db.execute("INSERT INTO owned(owner,plant,time,stage) VALUES (?,?,?,?)",[session["user_id"],plant_name,date_string ,1])
             # Update the user's number of coins
