@@ -104,7 +104,6 @@ main img
   }
 
 .main-logo {
-
     font-size: 120px;
     color: var(--white);
     animation: fadeIn 3s;
@@ -354,7 +353,7 @@ main img
     .index-text{font-size: 15px;}
     .index-goal{padding: 15px}
 
-    .main-logo{font-size: 50px;}
+    .main-logo{font-size: 40px;}
     .sub-header{font-size: 18px;}
 }
   
@@ -380,5 +379,3 @@ main img
   @media only screen and (min-width: 1200px) {
     
 }
-
-
